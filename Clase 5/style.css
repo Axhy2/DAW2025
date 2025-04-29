@@ -1,0 +1,181 @@
+  /* ========================
+    RESET & CONFIGURACIÓN GLOBAL
+    ======================== */
+   * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  body {
+    background-color: #fffaf5;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+  }
+  
+  
+  /* ========================
+     HEADER PRINCIPAL
+     ======================== */
+  header {
+    background-color: #ff6f00;
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    font-family: 'TG Frekuent Mono Light', monospace; /* Fuente personalizada */
+  }
+  
+  header h1 {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+  }
+  
+  header p {
+    font-size: 1rem;
+  }
+  
+  
+  /* ========================
+     NAVEGACIÓN HORIZONTAL
+     ======================== */
+  nav.navegation {
+    background-color: #e65100; /* Naranja oscuro */
+    padding: 10px 0;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-family: 'TG Frekuent Mono Light', monospace; /* Fuente personalizada */
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  nav ul li a {
+    color: #fffaf5; /* Texto claro */
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 16px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  nav ul li a:hover {
+    background-color: #fff3e0; /* Fondo claro */
+    color: #e65100;            /* Texto oscuro */
+    border-radius: 4px;
+  }
+  
+  
+  /* ========================
+     CONTENIDO PRINCIPAL
+     ======================== */
+  main {
+    margin-bottom: 30px;
+  }
+  
+  section {
+    margin-bottom: 20px;
+  }
+  
+  article h2,
+  section h2 {
+    color: #e65100;
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+  }
+  
+  article p,
+  section p {
+    margin-bottom: 10px;
+  }
+  
+  
+  /* ========================
+     FORMULARIO DE TESTIGOS
+     ======================== */
+  form {
+    background-color: #fff3e0;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.05);
+  }
+  
+  form label {
+    font-weight: bold;
+    color: #e65100;
+  }
+  
+  form input,
+  form textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  form button {
+    background-color: #ff6f00;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+  
+  form button:hover {
+    background-color: #e65100;
+  }
+  
+  
+  /* ========================
+     ASIDE - TEMAS RELACIONADOS
+     ======================== */
+  aside {
+    background-color: #ffe0b2;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+  
+  aside h2 {
+    color: #bf360c;
+    margin-bottom: 10px;
+  }
+  
+  aside ul {
+    list-style: square;
+    padding-left: 20px;
+  }
+  
+  aside a {
+    color: #e65100;
+    text-decoration: none;
+  }
+  
+  
+  /* ========================
+     FOOTER
+     ======================== */
+  footer {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #555;
+    border-top: 1px solid #ddd;
+    padding-top: 15px;
+    margin-top: 30px;
+  }
+  
+  footer a {
+    color: #ff6f00;
+    text-decoration: none;
+  }
+  
