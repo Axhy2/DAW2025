@@ -1,127 +1,147 @@
 /* style.css */
 
-/* Variables de tema */
+/* --- Variables y reset mínimo --- */
 :root {
-  --primary:   #4caf50;
-  --accent:    #ffeb3b;
-  --bg:        #f0f4f8;
-  --card-bg:   #ffffff;
-  --text:      #333333;
-  --spacing:   1rem;
+  --primary:  #4caf50;
+  --bg:       #f0f4f8;
+  --text:     #333;
+  --radius:   4px;
+  --spacing:  1rem;
 }
 
-/* Reset muy básico para listas */
-ul {
-  margin: var(--spacing) 0;
-  padding-left: 1.25rem;
-}
-
-/* Base mobile-first */
-* {
-  box-sizing: border-box;
-  font-family: 'Segoe UI', sans-serif;
-}
+* { box-sizing: border-box; }
 
 body {
   margin: 0;
+  font-family: 'Segoe UI', sans-serif;
   background: var(--bg);
   color: var(--text);
-  line-height: 1.4;
   padding: var(--spacing);
+}
+
+/* --- Header & Footer --- */
+header, footer {
+  text-align: center;
+  margin-bottom: var(--spacing);
 }
 
 header {
-  text-align: center;
-  padding: calc(var(--spacing) * 2) var(--spacing);
   background: linear-gradient(135deg, var(--primary), #2e7d32);
-  color: #fff;
+  color: white;
+  padding: calc(var(--spacing)*2) var(--spacing);
 }
 
+/* --- Nav y Formulario --- */
 nav {
+  background: white;
+  padding: var(--spacing);
+  border-radius: var(--radius);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  margin-bottom: var(--spacing);
+}
+
+/* Container flex: mobile-first en columna */
+nav .form-filters {
   display: flex;
   flex-direction: column;
   gap: var(--spacing);
-  background: #fff;
-  padding: var(--spacing);
-  border-radius: 6px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  margin: var(--spacing) 0;
 }
 
-nav > * {
-  width: 100%;
-}
-
-nav button,
-nav input,
-nav form button {
+/* Clase común para inputs, selects y botones */
+nav .form-control {
   width: 100%;
   padding: 0.75rem;
-  border: 2px solid var(--primary);
-  border-radius: 4px;
-  background: #fff;
-  color: var(--primary);
   font-size: 1rem;
+  border: 2px solid var(--primary);
+  border-radius: var(--radius);
+  background: white;
+  color: var(--primary);
   cursor: pointer;
   transition: background 0.2s, color 0.2s;
 }
 
-nav button:hover,
-nav input:hover,
-nav form button:hover {
+/* Hover igual para todos */
+nav .form-control:hover {
   background: var(--primary);
-  color: #fff;
+  color: white;
 }
 
-nav form {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+/* Quita flecha nativa y añade tu propio icono */
+nav select.form-control {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg width='10' height='5' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0l5 5 5-5' stroke='%234caf50' fill='none'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 10px 5px;
 }
 
-nav form input {
-  font-size: 0.9rem;
+/* Fuerza un mínimo de ancho en pantallas amplias */
+@media (min-width: 600px) {
+  nav .form-filters {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  nav .form-control {
+    flex: 1;
+    min-width: 120px;
+  }
+  nav #btn-get-all {
+    flex: 2; /* el botón “Ver Todos” un poquito más grande */
+  }
+  nav .btn-submit {
+    flex: 1;
+    min-width: 100px;
+  }
 }
 
-/* Resultados en una columna móvil */
-main {
-  margin-top: var(--spacing);
-}
-
-#results {
+/* --- Resultados y Tarjetas --- */
+main #results {
   display: grid;
-  grid-template-columns: 1fr;
   gap: var(--spacing);
+  grid-template-columns: 1fr;
 }
 
-/* Tarjetas */
+/* A partir de 600px: dos columnas */
+@media (min-width: 600px) {
+  main #results {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 900px) {
+  main #results {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (min-width: 1200px) {
+  main #results {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Tarjeta */
 .card {
-  background: var(--card-bg);
-  border-radius: 8px;
+  background: white;
+  border-radius: var(--radius);
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   transition: transform 0.2s, box-shadow 0.2s;
 }
-
 .card:hover {
   transform: translateY(-5px);
   box-shadow: 0 6px 12px rgba(0,0,0,0.15);
 }
-
 .card img {
   width: 100%;
   display: block;
 }
-
 .card .info {
   padding: var(--spacing);
 }
-
 .card .info h3 {
   margin: 0 0 0.5rem;
-  font-size: 1.25rem;
+  font-size: 1.2rem;
 }
-
 .card .info p {
   margin: 0.25rem 0;
   font-size: 0.9rem;
@@ -132,49 +152,4 @@ main {
   color: crimson;
   text-align: center;
   width: 100%;
-}
-
-/* Footer */
-footer {
-  text-align: center;
-  padding: var(--spacing);
-  font-size: 0.85rem;
-  background: #fff;
-  margin-top: calc(var(--spacing) * 2);
-  box-shadow: 0 -2px 4px rgba(0,0,0,0.05);
-}
-
-footer a {
-  color: var(--primary);
-  text-decoration: none;
-}
-
-/* Media queries para pantallas más anchas */
-@media (min-width: 600px) {
-  nav {
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-  }
-  nav > * {
-    width: auto;
-  }
-  nav form {
-    flex-direction: row;
-  }
-  #results {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 900px) {
-  #results {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media (min-width: 1200px) {
-  #results {
-    grid-template-columns: repeat(4, 1fr);
-  }
 }

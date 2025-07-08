@@ -10,42 +10,43 @@
 </head>
 
 <body>
+
   <header>
-    <h1>Rick and Morty Characters</h1>
+    <h1>Rick &amp; Morty Explorer</h1>
+    <p>Descubre personajes con un click o filtrando por tus criterios</p>
   </header>
 
-  <nav class="navegation">
-    <ul>
-      <li><button id="btn-get-all">Obtener Todos</button></li>
-      <li>
-        <form id="filter-form">
-          <input type="text" name="name"     placeholder="Nombre"     />
-          <input type="text" name="status"   placeholder="Estado"      />
-          <input type="text" name="species"  placeholder="Especie"     />
-          <input type="text" name="type"     placeholder="Tipo"        />
-          <input type="text" name="gender"   placeholder="Género"      />
-          <button type="submit">Filtrar</button>
-        </form>
-      </li>
-    </ul>
+  <nav>
+    <button id="btn-get-all" class="form-control">Ver Todos</button>
+    <form id="filter-form" class="form-filters">
+    <input class="form-control" type="text" name="name" placeholder="Nombre" />
+
+    <select class="form-control" name="status">
+        <option value="">Estado</option>
+    </select>
+
+    <select class="form-control" name="species">
+        <option value="">Especie</option>
+    </select>
+
+    <select class="form-control" name="type">
+        <option value="">Tipo</option>
+    </select>
+
+    <select class="form-control" name="gender">
+        <option value="">Género</option>
+    </select>
+
+    <button class="form-control btn-submit" type="submit">Filtrar</button>
+    </form>
   </nav>
 
-  <main class="clearfix">
-    <section>
-      <article>
-        <div id="results">
-          <!-- Aca van a estar los personajes -->
-        </div>
-      </article>
-    </section>
+  <main>
+    <div id="results"><!-- Aquí aparecerán las tarjetas --></div>
   </main>
 
-  <aside>
-    <!--  -->
-  </aside>
-
   <footer>
-    <p>Consumido desde <a href="https://rickandmortyapi.com/" target="_blank">rickandmortyapi.com</a></p>
+    <p>API de <a href="https://rickandmortyapi.com/" target="_blank">rickandmortyapi.com</a></p>
   </footer>
 
   <script src="script.js"></script>
