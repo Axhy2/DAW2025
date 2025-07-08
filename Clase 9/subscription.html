@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Suscripción - Diario Rosario3</title>
+    <link rel="stylesheet" href="../normalize.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="subscription.css" />
+</head>
+<body>
+    <!-- Header y footer iguales a los originales -->
+    <header>
+        <h1 id="title">Diario Rosario3 - Suscripción</h1>
+        <p>Suscribite y recibí noticias directamente en tu email.</p>
+    </header>
+
+    <nav class="navegation">
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="news.html">Noticias</a></li>
+            <li><a href="subscription.html" class="active">Suscripción</a></li>
+            <li><a href="contact.html">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <main class="subscription-main">
+        <h2 id="form-title">HOLA</h2>
+        <form action="#" method="post" class="subscription-form" novalidate>
+          <!-- Cada campo va dentro de form-group -->
+          <div class="form-group">
+            <label for="nombre">Nombre completo:</label>
+            <input type="text" id="nombre" name="nombre" required />
+            <div class="error-message" id="error-nombre"></div>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Correo electrónico:</label>
+            <input type="email" id="email" name="email" required />
+            <div class="error-message" id="error-email"></div>
+          </div>
+
+          <div class="form-group">
+            <label for="password">Contraseña:</label>
+            <input type="password" id="password" name="password" required />
+            <div class="error-message" id="error-password"></div>
+          </div>
+
+          <div class="form-group">
+            <label for="password2">Repetir contraseña:</label>
+            <input type="password" id="password2" name="password2" required />
+            <div class="error-message" id="error-password2"></div>
+          </div>
+
+          <div class="form-group">
+            <label for="edad">Edad:</label>
+            <input type="number" id="edad" name="edad" required min="18" />
+            <div class="error-message" id="error-edad"></div>
+          </div>
+
+          <div class="form-group">
+            <label for="telefono">Teléfono:</label>
+            <input type="tel" id="telefono" name="telefono" required />
+            <div class="error-message" id="error-telefono"></div>
+          </div>
+
+          <div class="form-group">
+            <label for="direccion">Dirección:</label>
+            <input type="text" id="direccion" name="direccion" required />
+            <div class="error-message" id="error-direccion"></div>
+          </div>
+
+          <div class="form-group">
+            <label for="ciudad">Ciudad:</label>
+            <input type="text" id="ciudad" name="ciudad" required />
+            <div class="error-message" id="error-ciudad"></div>
+          </div>
+
+          <div class="form-group">
+            <label for="codigo-postal">Código Postal:</label>
+            <input type="text" id="codigo-postal" name="codigo-postal" required />
+            <div class="error-message" id="error-codigo-postal"></div>
+          </div>
+
+          <div class="form-group">
+            <label for="dni">DNI:</label>
+            <input type="text" id="dni" name="dni" required />
+            <div class="error-message" id="error-dni"></div>
+          </div>
+
+          <div class="form-submit">
+            <button type="submit">Enviar</button>
+          </div>
+        </form>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 Rosario3 - Adaptación semántica HTML por Matías Lozano</p>
+      <p><b>Fuente original: </b><a href="https://www.rosario3.com/informaciongeneral/Violenta-entradera-en-finca-rural-de-la-region-maniataron-a-un-productor-y-a-su-esposa-20250423-0050.html" target="_blank">Nota en Rosario3.</a></p>
+      <p>Contacto: lozmat2002@gmail.com</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
