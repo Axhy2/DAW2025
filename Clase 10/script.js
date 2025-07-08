@@ -1,6 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.querySelector(".subscription-form");
   const title = document.getElementById("form-title");
+  const modal = document.getElementById("modal");
+  const modalTitle = document.getElementById("modal-title");
+  const modalBody = document.getElementById("modal-body");
+  const modalClose = document.getElementById("modal-close");
 
   const fields = {
     nombre: {
@@ -103,15 +107,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Evento blur: valida campo
+  // Eventos blur y focus para cada campo (validar y limpiar errores)
   Object.keys(fields).forEach(key => {
     const field = fields[key];
     field.element.addEventListener("blur", () => validateField(key));
-  });
-
-  // Evento focus: limpia mensaje error
-  Object.keys(fields).forEach(key => {
-    const field = fields[key];
     field.element.addEventListener("focus", () => {
       field.errorElement.textContent = "";
     });
@@ -129,8 +128,38 @@ document.addEventListener("DOMContentLoaded", () => {
     title.textContent = val ? `HOLA ${val.toUpperCase()}` : "HOLA";
   });
 
-  // Envío del formulario
-  form.addEventListener("submit", e => {
+  // Modal funciones
+  function showModal(titulo, mensaje) {
+    modalTitle.textContent = titulo;
+    modalBody.textContent = mensaje;
+    modal.style.display = "flex";
+  }
+
+  function hideModal() {
+    modal.style.display = "none";
+  }
+
+  modalClose.addEventListener("click", hideModal);
+  window.addEventListener("click", e => {
+    if (e.target === modal) hideModal();
+  });
+
+  // Cargar datos guardados en localStorage y mostrarlos
+  function cargarDatosGuardados() {
+    const datosGuardados = localStorage.getItem("suscripcion");
+    if (datosGuardados) {
+      try {
+        const data = JSON.parse(datosGuardados);
+        showModal("Datos guardados en LocalStorage", JSON.stringify(data, null, 2));
+      } catch (e) {
+        console.warn("Error leyendo localStorage", e);
+      }
+    }
+  }
+  cargarDatosGuardados();
+
+  // Envío del formulario con validación y fetch POST
+  form.addEventListener("submit", async e => {
     e.preventDefault();
 
     let errores = [];
@@ -141,20 +170,49 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     if (errores.length > 0) {
+      // Mostrar todos los errores en un alert y también se muestran debajo de cada campo
       alert("Errores en el formulario:\n" + errores.join("\n"));
-    } else {
-      // Armar resumen datos
-      const data = Object.keys(fields)
-        .map(key => {
-          let val = fields[key].element.value.trim();
-          // Para contraseña, no mostrar valor real, sino asteriscos
-          if (key === "password" || key === "password2") val = "*".repeat(val.length);
-          return `${key.toUpperCase()}: ${val}`;
-        })
-        .join("\n");
-      alert("Datos enviados:\n" + data);
+      return;
+    }
+
+    // Preparar datos para enviar
+    const formData = {
+      nombre: form.nombre.value.trim(),
+      email: form.email.value.trim(),
+      password: form.password.value, // Nota: no enviar en producción sin seguridad
+      edad: form.edad.value,
+      telefono: form.telefono.value.trim(),
+      direccion: form.direccion.value.trim(),
+      ciudad: form.ciudad.value.trim(),
+      codigoPostal: form["codigo-postal"].value.trim(),
+      dni: form.dni.value.trim()
+    };
+
+    try {
+      const response = await fetch("https://jsonplaceholder.typicode.com/posts", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData)
+      });
+
+      if (!response.ok) {
+        const errorText = await response.text();
+        showModal("Error al enviar", `Error: ${response.status} - ${response.statusText}\n${errorText}`);
+        return;
+      }
+
+      const data = await response.json();
+
+      showModal("Suscripción exitosa", JSON.stringify(data, null, 2));
+
+      // Guardar datos en localStorage
+      localStorage.setItem("suscripcion", JSON.stringify(data));
+
+      // Limpiar formulario y título
       form.reset();
       title.textContent = "HOLA";
+    } catch (error) {
+      showModal("Error de red", `No se pudo completar la solicitud:\n${error.message}`);
     }
   });
 });
