@@ -1,43 +1,54 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
-    <link rel="stylesheet" href="../normalize.css">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rick and Morty API Demo</title>
+  <link rel="stylesheet" href="../normalize.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <!-- Este es el encabezado -->
-    <header>
-    
-    </header>
 
-    <!-- Esta es la barra de navegación -->
-    <nav class="navegation">
-        <ul>
-       
-        </ul>
-    </nav>
+  <header>
+    <h1>Rick &amp; Morty Explorer</h1>
+    <p>Descubre personajes con un click o filtrando por tus criterios</p>
+  </header>
 
-    <!-- Esta es la sección "principal" -->
-    <main class="clearfix">
-        <section>
-            <article>
-            </article>
-        </section>
+  <nav>
+    <button id="btn-get-all" class="form-control">Ver Todos</button>
+    <form id="filter-form" class="form-filters">
+    <input class="form-control" type="text" name="name" placeholder="Nombre" />
 
-    </main>
+    <select class="form-control" name="status">
+        <option value="">Estado</option>
+    </select>
 
-    <!-- Navegación lateral -->
-    <aside>
-        
-    </aside>
+    <select class="form-control" name="species">
+        <option value="">Especie</option>
+    </select>
 
-    <!-- Footer con información -->
-    <footer>
+    <select class="form-control" name="type">
+        <option value="">Tipo</option>
+    </select>
 
-    </footer>
+    <select class="form-control" name="gender">
+        <option value="">Género</option>
+    </select>
+
+    <button class="form-control btn-submit" type="submit">Filtrar</button>
+    </form>
+  </nav>
+
+  <main>
+    <div id="results"><!-- Aquí aparecerán las tarjetas --></div>
+  </main>
+
+  <footer>
+    <p>API de <a href="https://rickandmortyapi.com/" target="_blank">rickandmortyapi.com</a></p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
