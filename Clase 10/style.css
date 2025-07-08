@@ -1,0 +1,376 @@
+  /* ========================
+    RESET & CONFIGURACIÓN GLOBAL
+    ======================== */
+   * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  body {
+    background-color: #fffaf5;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+  }
+  
+  
+  /* ========================
+     HEADER PRINCIPAL
+     ======================== */
+  header {
+    background-color: #ff6f00;
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    font-family: 'TG Frekuent Mono Light', monospace; /* Fuente personalizada */
+  }
+  
+  header h1 {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+  }
+  
+  header p {
+    font-size: 1rem;
+  }
+  
+  
+  /* ========================
+     NAVEGACIÓN HORIZONTAL
+     ======================== */
+  nav.navegation {
+    background-color: #e65100; /* Naranja oscuro */
+    padding: 10px 0;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-family: 'TG Frekuent Mono Light', monospace; /* Fuente personalizada */
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  nav ul li a {
+    color: #fffaf5; /* Texto claro */
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 16px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  nav ul li a:hover {
+    background-color: #fff3e0; /* Fondo claro */
+    color: #e65100;            /* Texto oscuro */
+    border-radius: 4px;
+  }
+  
+  
+  /* ========================
+     CONTENIDO PRINCIPAL
+     ======================== */
+  main {
+    margin-bottom: 30px;
+  }
+  
+  section {
+    margin-bottom: 20px;
+  }
+  
+  article h2,
+  section h2 {
+    color: #e65100;
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+  }
+  
+  article p,
+  section p {
+    margin-bottom: 10px;
+  }
+  
+  
+  /* ========================
+     FORMULARIO DE TESTIGOS
+     ======================== */
+  form {
+    background-color: #fff3e0;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.05);
+  }
+  
+  form label {
+    font-weight: bold;
+    color: #e65100;
+  }
+  
+  form input,
+  form textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  form button {
+    background-color: #ff6f00;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+  
+  form button:hover {
+    background-color: #e65100;
+  }
+  
+  
+  /* ========================
+     ASIDE - TEMAS RELACIONADOS
+     ======================== */
+  aside {
+    background-color: #ffe0b2;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+  
+  aside h2 {
+    color: #bf360c;
+    margin-bottom: 10px;
+  }
+  
+  aside ul {
+    list-style: square;
+    padding-left: 20px;
+  }
+  
+  aside a {
+    color: #e65100;
+    text-decoration: none;
+  }
+  
+  
+  /* ========================
+     FOOTER
+     ======================== */
+  footer {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #555;
+    border-top: 1px solid #ddd;
+    padding-top: 15px;
+    margin-top: 30px;
+  }
+  
+  footer a {
+    color: #ff6f00;
+    text-decoration: none;
+  }
+
+  /* ========================
+    Etiqueta dinamica de dispositivo
+    ======================== */
+  #device-label {
+    text-align: center;
+    padding: 8px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    border-radius: 4px;
+    background-color: #ffe0b2;
+    color: #bf360c;
+  }
+  #device-label::after {
+    content: "Mobile";
+  }
+
+/*MEDIA QUERYS*/
+/* ========================
+   Tablet
+   ======================== */
+   @media (min-width: 768px) {
+    header {
+      background-color: #e65c00;
+    }
+    header h1 {
+      font-size: 2.4rem;
+      color: #fff3e0;
+    }
+    nav {
+      background-color: #d84315;
+    }
+    nav ul {
+      text-align: center;
+    }
+    nav ul li {
+      display: inline-block;
+      margin: 0 10px;
+    }
+    nav ul li a {
+      color: #ffe0b2;
+    }
+    section {
+      width: 100%;
+      background-color: #fff8e1;
+      padding: 15px;
+      border-radius: 6px;
+    }
+    aside {
+      width: 30%;
+      float: right;
+      margin-left: 20px;
+      background-color: #ffecb3;
+      padding: 15px;
+      border-radius: 6px;
+    }
+    main {
+      width: 65%;
+      float: left;
+    }
+    footer {
+      clear: both;
+      background-color: #ffe0b2;
+      padding: 10px;
+      border-radius: 6px;
+    }
+    #device-label {
+      background-color: #ffecb3;
+      color: #d84315;
+    }
+    #device-label::after {
+      content: "Tablet";
+    }
+  }
+  
+/* ========================
+    Desktop
+    ======================== */
+  @media (min-width: 1024px) {
+    body {
+      max-width: 1200px;
+      margin: 0 auto;
+      background-color: #fff3e0;
+    }
+    header {
+      background-color: #d35400;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+    }
+    header h1 {
+      font-size: 2.8rem;
+      color: #fffde7;
+    }
+    section h2,
+    aside h2 {
+      font-size: 2rem;
+      color: #bf360c;
+    }
+    section {
+      background-color: #fffbe6;
+    }
+    aside {
+      background-color: #ffebcc;
+    }
+    form {
+      padding: 30px;
+      width: 100%;
+      background-color: #fff8e1;
+      border-radius: 6px;
+    }
+    article p,
+    section p {
+      font-size: 1.1rem;
+    }
+    section,
+    aside {
+      margin-bottom: 30px;
+    }
+    nav {
+      background-color: #c0392b;
+    }
+    nav ul {
+      padding: 0 40px;
+    }
+    nav ul li {
+      margin: 0 20px;
+    }
+    nav ul li a {
+      color: #ffe6cc;
+    }
+    #device-label {
+      background-color: #fff8e1;
+      color: #c0392b;
+    }
+    #device-label::after {
+      content: "Desktop";
+    }
+  }
+
+/* ========================
+  Ajustes mobile bajo width
+  ======================== */
+@media (max-width: 415px) {
+  nav ul {
+    display: block;
+    padding: 0;
+  }
+  nav ul li {
+    display: block;
+    margin: 8px 0;
+    text-align: center;
+  }
+  nav ul li a {
+    display: inline-block;
+    width: 100%;
+    padding: 5x 0;
+    font-size: 0.9rem;
+  }
+  body {
+    padding: 10px;
+  }
+  header h1 {
+    font-size: 1.8rem;
+  }
+  #device-label {
+    font-size: 0.9rem;
+    padding: 6px;
+  }
+  #device-label::after {
+    content: "Mobile small";
+  }
+}
+
+  
+/* ========================
+  LIMPIADOR DE FLOATS
+  ======================== */
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+nav ul li a.btn-subscription {
+  background-color: #ff6f00;
+  color: white;
+  padding: 6px 14px;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+nav ul li a.btn-subscription:hover {
+  background-color: #e65100;
+  color: #fffaf5;
+}
+
